@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection - Wedding Invitation Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-overlay"></div>
+    <header>
+        <nav>
+            <div class="logo">Wedding Cards</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="collection.html">Collection</a></li>
+                <li><a href="customize.html">Customize</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="cart-panel">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="cartPanel.classList.remove('active')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+            <h4>Total: $<span id="cart-total">0.00</span></h4>
+            <button onclick="checkout()" class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <main>
+        <section id="collection" class="card-collection">
+            <h2>Our Collection</h2>
+            <div class="card-grid">
+                <div class="card" data-theme="classic">
+                    <div class="price-tag">$29.99</div>
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=600&fit=crop" alt="Classic Theme">
+                    <div class="card-info">
+                        <h3>Classic Elegance</h3>
+                        <p>Traditional design with modern touches</p>
+                        <button onclick="previewCard('classic')">Preview</button>
+                        <button onclick="addToCart('classic')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card" data-theme="floral">
+                    <div class="price-tag">$34.99</div>
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=600&fit=crop" alt="Floral Theme">
+                    <div class="card-info">
+                        <h3>Floral Romance</h3>
+                        <p>Delicate floral patterns and soft colors</p>
+                        <button onclick="previewCard('floral')">Preview</button>
+                        <button onclick="addToCart('floral')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card" data-theme="modern">
+                    <div class="price-tag">$39.99</div>
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=600&fit=crop" alt="Modern Theme">
+                    <div class="card-info">
+                        <h3>Modern Minimalist</h3>
+                        <p>Clean lines and contemporary style</p>
+                        <button onclick="previewCard('modern')">Preview</button>
+                        <button onclick="addToCart('modern')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card" data-theme="vintage">
+                    <div class="price-tag">$44.99</div>
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400&h=600&fit=crop" alt="Vintage Theme">
+                    <div class="card-info">
+                        <h3>Vintage Charm</h3>
+                        <p>Timeless elegance with a retro touch</p>
+                        <button onclick="previewCard('vintage')">Preview</button>
+                        <button onclick="addToCart('vintage')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card" data-theme="rustic">
+                    <div class="price-tag">$39.99</div>
+                    <img src="https://images.unsplash.com/photo-1464699908537-0954e50791ee?w=400&h=600&fit=crop" alt="Rustic Theme">
+                    <div class="card-info">
+                        <h3>Rustic Dreams</h3>
+                        <p>Natural elements with countryside charm</p>
+                        <button onclick="previewCard('rustic')">Preview</button>
+                        <button onclick="addToCart('rustic')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card" data-theme="watercolor">
+                    <div class="price-tag">$42.99</div>
+                    <img src="https://images.unsplash.com/photo-1530982011887-3cc11cc85693?w=400&h=600&fit=crop" alt="Watercolor Theme">
+                    <div class="card-info">
+                        <h3>Watercolor Dreams</h3>
+                        <p>Soft watercolor effects and dreamy hues</p>
+                        <button onclick="previewCard('watercolor')">Preview</button>
+                        <button onclick="addToCart('watercolor')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card" data-theme="geometric">
+                    <div class="price-tag">$38.99</div>
+                    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&h=600&fit=crop" alt="Geometric Theme">
+                    <div class="card-info">
+                        <h3>Geometric Luxe</h3>
+                        <p>Modern geometric patterns and metallic accents</p>
+                        <button onclick="previewCard('geometric')">Preview</button>
+                        <button onclick="addToCart('geometric')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card" data-theme="destination">
+                    <div class="price-tag">$45.99</div>
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400&h=600&fit=crop" alt="Destination Theme">
+                    <div class="card-info">
+                        <h3>Destination Romance</h3>
+                        <p>Perfect for destination weddings</p>
+                        <button onclick="previewCard('destination')">Preview</button>
+                        <button onclick="addToCart('destination')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card" data-theme="enchanted">
+                    <div class="price-tag">$47.99</div>
+                    <img src="https://images.unsplash.com/photo-1513278974582-3e1b4a4fa21e?w=400&h=600&fit=crop" alt="Enchanted Theme">
+                    <div class="card-info">
+                        <h3>Enchanted Garden</h3>
+                        <p>Magical and whimsical design elements</p>
+                        <button onclick="previewCard('enchanted')">Preview</button>
+                        <button onclick="addToCart('enchanted')" class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: info@weddinginvites.com</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
